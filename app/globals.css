@@ -1,42 +1,270 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ═══════════════════════════════════════════════════════════════════════
+   WordPress Login Page — Authentic Replica Styles
+   ═══════════════════════════════════════════════════════════════════════ */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-a {
-  color: inherit;
+:root {
+  --wp-blue: #2271b1;
+  --wp-blue-hover: #135e96;
+  --wp-blue-focus: #043959;
+  --wp-bg: #f0f0f1;
+  --wp-card-bg: #ffffff;
+  --wp-text: #3c434a;
+  --wp-text-light: #50575e;
+  --wp-border: #c3c4c7;
+  --wp-input-border: #8c8f94;
+  --wp-error-bg: #d63638;
+  --wp-error-border: #d63638;
+  --wp-link: #2271b1;
+  --wp-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans,
+    Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 13px;
+  line-height: 1.4em;
+  color: var(--wp-text);
+  background: var(--wp-bg);
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Logo ─────────────────────────────────────────────────────────────── */
+
+.login-logo {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.login-logo a {
+  display: inline-block;
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.login-logo svg {
+  width: 84px;
+  height: 84px;
+  color: var(--wp-text);
+}
+
+.login-logo a:hover svg,
+.login-logo a:focus svg {
+  color: var(--wp-blue);
+}
+
+/* ─── Login Card ───────────────────────────────────────────────────────── */
+
+.login-container {
+  width: 100%;
+  max-width: 320px;
+  padding: 0 20px;
+}
+
+.login-card {
+  background: var(--wp-card-bg);
+  border: 1px solid var(--wp-border);
+  border-radius: 4px;
+  box-shadow: var(--wp-shadow);
+  padding: 26px 24px 34px;
+}
+
+/* ─── Form ─────────────────────────────────────────────────────────────── */
+
+.login-card label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 3px;
+  color: var(--wp-text);
+}
+
+.login-card .input-wrap {
+  margin-bottom: 16px;
+}
+
+.login-card input[type="text"],
+.login-card input[type="password"] {
+  width: 100%;
+  padding: 3px 5px;
+  font-size: 24px;
+  line-height: 1.3;
+  border: 1px solid var(--wp-input-border);
+  border-radius: 4px;
+  color: var(--wp-text);
+  background: var(--wp-card-bg);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.login-card input[type="text"]:focus,
+.login-card input[type="password"]:focus {
+  border-color: var(--wp-blue);
+  box-shadow: 0 0 0 1px var(--wp-blue);
+}
+
+/* Password toggle */
+.password-wrap {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--wp-text-light);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-toggle:hover {
+  color: var(--wp-blue);
+}
+
+.password-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ─── Remember Me + Submit Row ─────────────────────────────────────────── */
+
+.login-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--wp-text);
+  cursor: pointer;
+}
+
+.remember-me input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.login-btn {
+  padding: 0 12px;
+  min-height: 32px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 2.15384615;
+  border: 1px solid var(--wp-blue);
+  border-radius: 3px;
+  background: var(--wp-blue);
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.login-btn:hover {
+  background: var(--wp-blue-hover);
+  border-color: var(--wp-blue-hover);
+}
+
+.login-btn:focus {
+  background: var(--wp-blue-focus);
+  border-color: var(--wp-blue-focus);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px var(--wp-blue);
+  outline: none;
+}
+
+.login-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ─── Footer Links ─────────────────────────────────────────────────────── */
+
+.login-footer {
+  text-align: center;
+  padding: 16px 0;
+}
+
+.login-footer a {
+  color: var(--wp-link);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.login-footer a:hover {
+  color: var(--wp-blue-hover);
+  text-decoration: underline;
+}
+
+.back-to-link {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.back-to-link a {
+  color: var(--wp-link);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.back-to-link a:hover {
+  color: var(--wp-blue-hover);
+  text-decoration: underline;
+}
+
+/* ─── Shake Animation ──────────────────────────────────────────────────── */
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+.shake {
+  animation: shake 0.6s ease-in-out;
+}
+
+/* ─── Toast Overrides ──────────────────────────────────────────────────── */
+
+/* Style react-hot-toast to look like WordPress error notices */
+.wp-toast-error {
+  background: #fcf0f1 !important;
+  border-left: 4px solid var(--wp-error-bg) !important;
+  color: var(--wp-text) !important;
+  border-radius: 4px !important;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04) !important;
+  padding: 12px !important;
+  font-size: 13px !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans,
+    Ubuntu, Cantarell, "Helvetica Neue", sans-serif !important;
+  max-width: 320px !important;
+}
+
+.wp-toast-error strong {
+  color: var(--wp-error-bg);
 }
